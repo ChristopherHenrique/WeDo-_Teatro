@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>{{{ PRODUCT_NAME }}}</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body class="{{{ SPLASH_SCREEN_STYLE.toLowerCase() }}}">
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="gsap.min.js"></script>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas"></canvas>
+      <img class="btn-box" id="btn-bilheteria" src="x-purple.png" 
+      onclick="window.closeFrame('bilheteria')">
+      <img class="btn-box" id="btn-palco" src="x-purple.png"
+      onclick="window.closeFrame('palco')">
+      <img class="btn-box" id="btn-loja" src="x-purple.png" 
+      onclick="window.closeFrame('loja')">
+      <img id="btn-input" src="x-purple.png" 
+      onclick="window.closeInput('')">
+      <iframe id="iframe-bilheteria" src="https://www.sympla.com.br/agenda-eventos/6td27HvSf4dbseZUhZEQksagxe7iFiUliFhGQEQwHXs?theme=light" title="Bilheteria" width="80%" height="80%" style="border:none; position: absolute; box-sizing: inherit; top: 10%; left: 10%; display: none; transform: scale(0.6); opacity: 0;"></iframe>
+      <iframe id="iframe-palco" src="https://www.wedoentretenimento.com/wedohdstgdtsfwry13" title="Palco" width="80%" height="80%" style="border:none; position: absolute; box-sizing: inherit; top: 10%; left: 10%; display: none; transform: scale(0.6); opacity: 0;"></iframe>
+      <iframe id="iframe-loja" src="https://www.wedoentretenimento.com/loja" title="Loja" width="80%" height="80%" style="border:none; position: absolute; box-sizing: inherit; top: 10%; left: 10%; display: none; transform: scale(0.6); opacity: 0;"></iframe>
+      <div id="inputBox">
+        <span style="font-size: 22px; margin: auto; padding: 20px 30px; font-family: Liberation Sans, sans-serif">Insira aqui o <strong>Nº do Ingresso</strong> acessível pelo e-mail ou no app da Sympla</span>
+        <form action="" autocomplete="off" style="margin: 40px auto; display: flex; flex-direction: column; align-items: center;">
+          <button type=submit onclick="return false;" style="display:none;"></button>
+          <input type="text" placeholder="XXXX-XX-XXXX" maxlength="12" id="inputTicket" style="height: 40px; width: 200px; font-size: 24px; text-align: center; font-family: Liberation Sans, sans-serif;">
+          <span style="font-size: 22px; margin: auto; padding: 20px 30px; font-family: Liberation Sans, sans-serif">Insira apenas os caracteres sem os traços.</span>
+        </form>
+        <button type="button" class="btn-unity" onclick="window.sendTicket()" style="width: 150px; height:40px; background-color:#40015B; border:none; border-radius:5px; color: #FFFFFF; font-weight:bold; font-size: 20px; margin: auto auto 3vh; font-family: Liberation Sans, sans-serif;">Confirmar</button>
+      </div>
+    </div>
+    <div id="loading-cover" style="display:none;">
+      <div id="unity-loading-bar">
+        <div id="unity-logo"><img src="logo-roxo.png" id="logo" style="width: 300px; 
+        height: 300px;
+        transform: scale(0.6);
+        opacity: 0.3;
+        object-fit:contain
+        "></div>
+        <div id="unity-progress-bar-empty" style="display: none;">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+        <div class="spinner"></div>
+        <div id="loading-balls" style="position: relative; width: 200px; height: 100px; top: -100px;">
+          <img src="circulo-roxo.png" id="ball-1">
+          <img src="circulo-roxo.png" id="ball-2">
+          <img src="circulo-roxo.png" id="ball-3">
+          <img src="circulo-roxo.png" id="ball-4">
+          <img src="circulo-roxo.png" id="ball-5">
+          <img src="circulo-roxo.png" id="ball-6">
+          <img src="circulo-roxo.png" id="ball-7">
+          <div id="pct" style="color: #3f179c; 
+          font-family: Verdana, Geneva, Arial, sans-serif;
+          font-size: larger;
+          text-align: center; ">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="unity-fullscreen-button" style="display: none;"></div>
+    <script src="TemplateData/load.js"></script>
+  </body>
+</html>
